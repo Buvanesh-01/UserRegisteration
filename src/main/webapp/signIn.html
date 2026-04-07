@@ -1,20 +1,153 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Registration</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 350px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .input-group label {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            color: #777;
+            font-size: 14px;
+            transform: translateY(-50%);
+            pointer-events: none;
+            transition: 0.3s;
+            background: white;
+            padding: 0 5px;
+        }
+
+        .input-group input:focus + label,
+        .input-group input:valid + label {
+            top: -8px;
+            font-size: 12px;
+            color: #667eea;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background: #667eea;
+            color: white;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #5a67d8;
+        }
+
+        .extra {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .extra a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .extra a:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+    </style>
 </head>
 <body>
 
-<h2>User Registration</h2>
+<div class="container">
+    <h2>Register</h2>
 
-<form action="register" method="post">
-    Name: <input type="text" name="name"><br><br>
-    Email: <input type="email" name="email"><br><br>
-    Password: <input type="password" name="password"><br><br>
-    Phone: <input type="text" name="phone"><br><br>
+    <form action="register" method="post">
 
-    <input type="submit" value="Register">
-</form>
+        <div class="input-group">
+            <input type="text" name="name" required>
+            <label>Name</label>
+        </div>
+
+        <div class="input-group">
+            <input type="email" name="email" required>
+            <label>Email</label>
+        </div>
+
+        <div class="input-group">
+            <input type="password" name="password" required>
+            <label>Password</label>
+        </div>
+
+        <div class="input-group">
+            <input type="text" name="phone" required pattern="[0-9]{10}">
+            <label>Phone</label>
+        </div>
+
+        <input type="submit" value="Register" class="btn">
+    </form>
+
+    <div class="extra">
+        Already have an account? <a href="#">Login</a>
+    </div>
+</div>
 
 </body>
 </html>
